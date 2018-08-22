@@ -32,6 +32,7 @@ pila = Pila()
 #print (evaluar(pila.desapilar()))
 
 archivo = open("expresionesin.txt", "r")
+archivo2 = open("expresionesout.txt", "w")
 linea1 = archivo.readlines()
 lista = []
 for linea2 in linea1:
@@ -42,5 +43,12 @@ for linea2 in linea1:
         convertir(exp, pila)
         #print (evaluar(pila.desapilar()))
         resultado = evaluar(pila.desapilar())
-        lista.append(resultado)
-print(lista)
+        archivo2.write(str(resultado) + '\n') 
+
+
+
+
+
+
+archivo.close()
+archivo2.close()
