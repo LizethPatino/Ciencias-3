@@ -1,0 +1,25 @@
+
+    digraph xtext {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+773237869816 -> 773239010416 [label="entities:0" arrowtail=diamond dir=both]
+773239010416 -> 773239011480 [label="properties:0" arrowtail=diamond dir=both]
+773239011480 -> 773227922320 [label="type" ]
+773227922320[label="{integer:SimpleType|}"]
+773239011480[label="{num:Property|}"]
+773239010416 -> 773239011032 [label="properties:1" arrowtail=diamond dir=both]
+773239011032 -> 773227922320 [label="type" ]
+773239011032[label="{x:Property|}"]
+773239010416[label="{main:Entity|}"]
+773237869816[label="{:EntityModel|types:list=[]\l}"]
+
+}

@@ -1,0 +1,56 @@
+
+    digraph xtext {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+773233697448 -> 773233017032[arrowtail=diamond, dir=both, headlabel="types 0..*"]
+773233697448 -> 773233704056[arrowtail=diamond, dir=both, headlabel="entities 1..*"]
+773233697448[ label="{EntityModel|}"]
+
+773233704056 -> 773233716328[arrowtail=diamond, dir=both, headlabel="properties 1..*"]
+773233704056[ label="{Entity|+name:ID\l}"]
+
+773233716328 -> 773233719160[headlabel="type "]
+773233716328[ label="{Property|+name:ID\l}"]
+
+773233719160[ label="{*Type|}"]
+773233719160 -> 773233017032 [dir=back]
+773233719160 -> 773233704056 [dir=back]
+
+773233017032[ label="{SimpleType|+name:ID\l}"]
+
+773233712552[ label="{Comment|\\/\\/.*$}"]
+
+773225730152[ label="{ID|}"]
+
+773233695560[ label="{STRING|}"]
+
+773233687064[ label="{BOOL|}"]
+
+773233688952[ label="{INT|}"]
+
+773233692728[ label="{FLOAT|}"]
+
+773233700280[ label="{NUMBER|}"]
+773233700280 -> 773233692728 [dir=back]
+773233700280 -> 773233688952 [dir=back]
+
+773233705000[ label="{BASETYPE|}"]
+773233705000 -> 773233700280 [dir=back]
+773233705000 -> 773233687064 [dir=back]
+773233705000 -> 773225730152 [dir=back]
+773233705000 -> 773233695560 [dir=back]
+
+773233706888[ label="{*OBJECT|}"]
+773233706888 -> 773233705000 [dir=back]
+
+
+}

@@ -1,0 +1,72 @@
+(function(){
+	// Variables
+	{% for property in entity.properties[0:1] %}
+	var {{property.name}} = document.getElementById("{{property.name}}"),
+	{% endfor %}
+	{% for property in entity.properties[1:2] %}
+		{{property.name}} = document.getElementById("{{property.name}}"),
+	{% endfor %}	
+		btnNuevaTarea = document.getElementById("btn-agregar");
+
+	// Funciones
+	var agregarTarea = function(){
+	{% for property in entity.properties[2:3] %}
+		var {{property.name}} = tareaInput.value,
+			nuevaTarea = document.createElement("li"),
+			enlace = document.createElement("a"),
+			contenido = document.createTextNode({{property.name}});
+	
+		if ({{property.name}} === ""){% endfor %}
+		{% for property in entity.properties[0:1] %} {
+			 {{property.name}}.setAttribute("placeholder", "Agrega una tarea valida");
+			 {{property.name}}.className = "error";
+			return false;
+			{% endfor %}
+		}
+
+		// Agregamos el contenido al enlace
+		enlace.appendChild(contenido);
+		// Le establecemos un atributo href
+		enlace.setAttribute("href", "#");
+		// Agrergamos el enlace (a) a la nueva tarea (li)
+		nuevaTarea.appendChild(enlace);
+		{% for property in entity.properties[0:1] %}
+		// Agregamos la nueva tarea a la lista
+		{{property.name}}.appendChild(nuevaTarea);
+		{% endfor %}
+		
+		{% for property in entity.properties[2:3] %}
+		{{property.name}}.value = "";
+		{% endfor %}
+		{% for property in entity.properties[0:1] %}
+		for (var i = 0; i <= {{property.name}}.children.length -1; i++) {
+			{{property.name}}.children[i].addEventListener("click", function(){
+				this.parentNode.removeChild(this);
+				{% endfor %}
+			});
+		}
+
+	};
+	var comprobarInput = function(){
+		tareaInput.className = "";
+		teareaInput.setAttribute("placeholder", "Agrega tu tarea");
+	};
+
+	var eleminarTarea = function(){
+		this.parentNode.removeChild(this);
+	};
+
+	// Eventos
+
+	// Agregar Tarea
+	btnNuevaTarea.addEventListener("click", agregarTarea);
+
+	// Comprobar Input
+	tareaInput.addEventListener("click", comprobarInput);
+{% for property in entity.properties[0:1] %}
+	// Borrando Elementos de la lista
+	for (var i = 0; i <= {{property.name}}.children.length -1; i++) {
+		{{property.name}}.children[i].addEventListener("click", eleminarTarea);
+		{% endfor %}
+	}
+}());

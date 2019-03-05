@@ -1,0 +1,16 @@
+entity ListaTareas {
+		lista:string
+		tareaInput:string
+		tarea:string
+		button:string
+}           
+
+		
+
+	
+			
+			   
+
+
+
+
